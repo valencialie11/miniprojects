@@ -2,6 +2,7 @@
 
 ## List of mini projects
 - Guess The Number 
+- Hangman
 
 Hi! It's me again! I'm back with a series of mini projects to strengthen my foundation in python. 
 
