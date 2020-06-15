@@ -1,4 +1,8 @@
 # Mini Projects
+
+## List of mini projects
+- Guess The Number 
+
 Hi! It's me again! I'm back with a series of mini projects to strengthen my foundation in python. 
 
 Although they look very simple,
