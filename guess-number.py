@@ -7,7 +7,7 @@ def intro():
 
 def choose():
     yes = {'yes', 'y', 'ye', ''}
-    no = {'no', 'n'}
+    no = {'no', 'n', 'nope'}
     #"Curly Braces" are used in Python to define a dictionary. A dictionary is a data structure that maps one value to another - kind of like how an English dictionary maps a word to its definition.
 
     choice = input().lower()
