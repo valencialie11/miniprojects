@@ -45,6 +45,7 @@ def game():
         
     num = len(split(correctAnswer))
     print("_ "*num)
+    
     input().lower()
 
 
