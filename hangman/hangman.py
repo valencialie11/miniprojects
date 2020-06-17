@@ -9,8 +9,19 @@ def hangman(winning_word,char_guessed):
             print(' __ ', end='') #Whereas if not then a _ will be presented
     print()
 
-def over(winning_word,char_guessed):
-    char_guessed is winning_word
+def success(winning_word,char_guessed):
+    counts = 0
+    for i in winning_word: #for every letter in winning word
+        if i in char_guessed:  #if that letter is guessed also
+            counts += 1 #the count will increase
+    return len(winning_word) == counts #it is over only when the number of counts = length of the winning_word
+
+def fail(winning_word, char_guessed):
+    counts = 0
+    for i in list(winning_word): #for every letter in winning word
+        if i in char_guessed:  #if that letter is guessed also
+            counts += 1 #the count will increase
+    return len(list(winning_word)) != counts
 
 def intro():
     print("Enter your name:")
@@ -24,7 +35,7 @@ def choose():
 
     if choice in yes:
         print("Okay! Let's start the game!")
-        print("We have picked a mystery word and you have to guess all the letters before 6 tries. Input a letter:")
+        print("We have picked a mystery word and you have to guess all the letters before 15 tries. Input a letter:")
         game()
     elif choice in no:
         print("Goodbye! See you next time!")
@@ -34,6 +45,7 @@ def choose():
         choose()
 
 def game():
+    
     words = dict(csv.reader(open("randomwords.csv")))
     #change it into a dictionary
     randWord = random.choice(list(words.keys()))
@@ -50,29 +62,31 @@ def game():
     #D = {"list":"Liste", "dictionary":"Wörterbuch", "function":"Funktion"}
     #List
     #L = [("list","Liste"), ("dictionary","Wörterbuch"), ("function","Funktion")]
-    for inputation in range(0,6):
+    for inputation in range(0,15):
         inputation = input().lower()
+        
         if inputation not in winning_word:
             print("Sorry, the mystery word does not consist the above input. Try again!")
             hangman(winning_word,char_guessed)
             inputation
-        
+
         elif inputation in char_guessed:
             print("The above letter is guessed already, pick another letter!")
-            hangman(winning_word,char_guessed)
             inputation
         
         elif (inputation in winning_word) and (inputation not in char_guessed):
-            print("Yes! The above letter exists in the mystery word. Input another letter!")
             char_guessed += inputation
             hangman(winning_word,char_guessed)
-            inputation
-            if over(winning_word,char_guessed):
+            if success(winning_word,char_guessed):
                 print("Congratulations, you have guessed the mystery word! Would you like to try again?")
                 choose()
             else:
-                print("Sorry, you have failed this round. The mystery word is " + str(winning_word)+ ". Would you like to try again?")
-                choose()
+                print("Yes! The above letter exists in the mystery word. Input another letter!")
+                inputation
+        
+    if fail(winning_word,char_guessed):
+        print("Sorry, you have failed this round. The mystery word is " + str(winning_word) + ". Would you like to try again?")
+        choose()
 
 if __name__== "__main__":
   intro()
