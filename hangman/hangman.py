@@ -10,7 +10,7 @@ def hangman(winning_word,char_guessed):
     print()
 
 def over(winning_word,char_guessed):
-    char_guessed == winning_word
+    char_guessed is winning_word
 
 def intro():
     print("Enter your name:")
@@ -41,6 +41,7 @@ def game():
     #The keys() method returns a view object. The view object contains the keys of the dictionary, as a list.
     winning_word = words[randWord]
     #Subset the dictionary using keys
+    char_guessed = ''
     
     #A list is an ordered sequence of objects, whereas dictionaries are unordered sets. 
     #However, the main difference is that items in dictionaries are accessed via keys and not via their position, unlike list
@@ -70,7 +71,7 @@ def game():
                 print("Congratulations, you have guessed the mystery word! Would you like to try again?")
                 choose()
             else:
-                print("Sorry, you have failed this round. The mystery word is" + str(winning_word)+ "Would you like to try again?")
+                print("Sorry, you have failed this round. The mystery word is " + str(winning_word)+ ". Would you like to try again?")
                 choose()
 
 if __name__== "__main__":
