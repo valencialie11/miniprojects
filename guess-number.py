@@ -26,14 +26,17 @@ def choose():
 def game():
     num = random.randint(1,101)
     for num0 in range(0,10):
-        num0 = int(input())
-        if num0 == num:
-            print("Congratulations! You have guessed the correct number! Try another round?")
-            choose()
-        elif num0 < num:
-            print("The mystery number is higher than your guess. Try again!")
-        elif num0 > num:
-            print("The mystery number is lower than your guess. Try again!")
+        try:
+            num0 = int(input())
+            if num0 == num:
+                print("Congratulations! You have guessed the correct number! Try another round?")
+                choose()
+            elif num0 < num:
+                print("The mystery number is higher than your guess. Try again!")
+            elif num0 > num:
+                print("The mystery number is lower than your guess. Try again!")
+        except ValueError:
+            print("Invalid input. Please enter a whole number.")
     if num0 != num:
         print("Sorry, you failed this game. Your mystery number is " + str(num) + ". Try another round?")
         choose()

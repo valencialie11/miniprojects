@@ -62,6 +62,7 @@ def game():
     #D = {"list":"Liste", "dictionary":"Wörterbuch", "function":"Funktion"}
     #List
     #L = [("list","Liste"), ("dictionary","Wörterbuch"), ("function","Funktion")]
+    
     for inputation in range(0,15):
         inputation = input().lower()
         
