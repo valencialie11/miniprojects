@@ -3,6 +3,7 @@
 ## List of mini projects
 - Guess The Number 
 - Hangman
+- Password Generator (My approach is slightly different in such a way that I'm using a series of passwords taken online of different characters and lengths and randomise it to suit the user's needs, instead of making random passwords for the user from scratch, but will try to change it or upload a different version)
 
 Hi! It's me again! I'm back with a series of mini projects to strengthen my foundation in python. 
 
